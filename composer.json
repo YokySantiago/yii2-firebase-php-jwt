@@ -1,0 +1,23 @@
+{
+    "name": "yokysantiago/yii2-firebase-php-jwt",
+    "description": "Clase de generación, comprobación y obtención de información con token JWT, para la libería firebase / php-jwt",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Santiago Botero Ruiz",
+            "email": "boterosantiago6@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "yiisoft/yii2": "~2.0.0",
+        "firebase/php-jwt": ">=5.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "yokysantiago\\ms\\firebase\\jwt\\": ""
+        }
+    }
+}
