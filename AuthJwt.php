@@ -12,13 +12,15 @@ class AuthJwt
     private $secret_key;
     private $encrypt;
     private $aud = null;
+    private $doAud = false;
 
-    public function __construct() 
+    public function __construct( $doAud = true ) 
     {
         // JWT-secretKey must be defined in Yii params.php file
         $this->secret_key = Yii::$app->params['JWT-secretKey'];
         // JWT-v must be defined in Yii params.php file
         $this->encrypt = Yii::$app->params['JWT-encrypt'];
+        $this->doAud = $doAud;
     }
 
     /**
@@ -48,7 +50,7 @@ class AuthJwt
 
         $decode = JWT::decode( $token, $this->secret_key, $this->encrypt );
 
-        if($decode->aud !== $this->aud()) {
+        if($this->doAud && $decode->aud !== $this->aud()) {
             throw new \Exception("Invalid user logged in.");
         }
     }
