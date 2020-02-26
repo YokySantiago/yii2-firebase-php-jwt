@@ -43,13 +43,13 @@ class AuthJwt
     public function checkToken($token)
     {
         if(empty($token)) {
-            throw new Exception("Invalid token.");
+            throw new \Exception("Invalid token.");
         }
 
         $decode = JWT::decode( $token, $this->secret_key, $this->encrypt );
 
         if($decode->aud !== $this->aud()) {
-            throw new Exception("Invalid user logged in.");
+            throw new \Exception("Invalid user logged in.");
         }
     }
 
