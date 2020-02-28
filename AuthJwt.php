@@ -31,7 +31,7 @@ class AuthJwt
         $time = time();
 
         $token = array(
-            'exp' => $time + (60*60),
+            'exp' => $time + (60 * \Yii::$app->params['JWT-expires_in']),
             'aud' => $this->aud(),
             'data' => $data
         );
